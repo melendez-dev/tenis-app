@@ -12,8 +12,10 @@ export async function registerUser(formData) {
     const password = formData.get("password");
     const user = await getUserByEmail(email);
 
+    console.log({user})
+
     if (user?.length) {
-      throw new Error("Este correo ya está en uso");
+      return {status: "emailInUse"};
     }
 
     const passwordHashed = await hashPassword(password);
@@ -26,7 +28,7 @@ export async function registerUser(formData) {
 
 export async function getUserByEmail(email) {
   try{
-    const  { rows }  = await sql`SELECT * FROM users where email = ${email} LIMIT ALL`
+    const  { rows }  = await sql`SELECT * FROM users where email = ${email}`
     return rows;
   }catch(err) {
     throw err;
