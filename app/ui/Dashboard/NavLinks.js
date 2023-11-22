@@ -10,7 +10,7 @@ const links = [
     href: '/admin/users',
     icon: <>icon</>,
   },
-  { name: 'Torneos', href: '/admin/tourments', icon: <>icon</> },
+  { name: 'Torneos', href: '/admin/tournaments', icon: <>icon</> },
 ];
 
 export default function NavLinks() {
@@ -18,13 +18,15 @@ export default function NavLinks() {
 
   return (
     <>
-      {links.map((link) => {
+      {links.map((link, idx) => {
         return (
           <Link
-            key={link.name}
+            key={idx}
             href={link.href}
             className={
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3'
+              `flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 
+              ${pathname == link.href && 'text-blue-600 bg-sky-100'}
+              `
             }
           >
             <p className="hidden md:block">{link.name}</p>

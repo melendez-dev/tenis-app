@@ -7,8 +7,6 @@ export default function AdminLayaout({ children }) {
   const router = useRouter();
   const { data: dataSession, status: statusSession } = useSession();
 
-  console.log(dataSession, statusSession)
-
   if (statusSession != "authenticated" && statusSession != "loading") {
     router.push("/")
   }
