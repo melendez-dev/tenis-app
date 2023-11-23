@@ -28,7 +28,10 @@ export default function PageIdTournament({params}) {
 
   const getData = async() => {
     try{
-      const res = await fetch(`/api/users/tournaments/by-id?id=${params.id}`)
+      const res = await fetch(`/api/users/tournaments/by-id?id=${params.id}`, {
+        method: "GET",
+        cache: "no-store"
+      })
       const data = await res.json();
 
       if (data?.status === "success" && data?.data.length === 1) {
