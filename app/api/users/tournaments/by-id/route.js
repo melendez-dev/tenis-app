@@ -11,7 +11,7 @@ export async function GET(req) {
     const { rows } = await client.sql`SELECT * FROM tournaments WHERE id = ${id}`;
 
     client.end()
-    return NextResponse.json({ status: "success", data: rows });
+    return NextResponse.json({ status: "success", data: rows ?? [] });
   } catch (error) {
     return NextResponse.json({ status: "error", error: error });
   } finally{

@@ -109,7 +109,7 @@ export default function PageIdTournament({params}) {
 
   useEffect(() => {
     getData();
-  }, [params.id ])
+  }, [params])
 
   useEffect(() => {
     if (session?.status === "authenticated" && players) {
