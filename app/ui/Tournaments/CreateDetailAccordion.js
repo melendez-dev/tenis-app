@@ -134,7 +134,7 @@ export default function CreateDetailAccordion({
                   {...field} 
                   type="number" 
                   label="# Máximo de usuarios" 
-                  InputProps={{ inputProps: { min: 16, max: 120 } }}
+                  InputProps={{ inputProps: { min: 2, max: 120 } }}
                   onChange={(e) => field.onChange(e.target.value)}
                   fullWidth
                 />
