@@ -6,6 +6,7 @@ export async function GET() {
   try {
     client = await db.connect();
     const { rows } = await client.sql`SELECT * FROM users WHERE role = 'user'`;
+    client.end();
     return NextResponse.json({ status: "success", data: rows ?? [] });
   } catch (error) {
     return NextResponse.json({ status: "error", error: error });
@@ -21,13 +22,13 @@ export async function PUT(request) {
     const data = await request.json();
 
     const updated_at = new Date();
-    console.log({data})
 
     await client.sql`UPDATE users SET 
       name = ${data?.name},
       email = ${data?.email},
       updated_at = ${updated_at}
       WHERE id = ${data?.id}`;
+    client.end();
     return NextResponse.json({ status: "success", data: [] });
   } catch (error) {
     return NextResponse.json({ status: "error", error: error });
