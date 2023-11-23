@@ -1,5 +1,7 @@
 import { db } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic'
  
 export async function GET(req) {
   let client = null;
@@ -11,7 +13,7 @@ export async function GET(req) {
     const { rows } = await client.sql`SELECT * FROM tournaments WHERE id = ${id}`;
 
     client.end()
-    return NextResponse.json({ status: "success", data: rows });
+    return NextResponse.json({ status: "success", data: rows ?? [] });
   } catch (error) {
     return NextResponse.json({ status: "error", error: error });
   } finally{
