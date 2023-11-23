@@ -70,6 +70,7 @@ export async function PUT(request) {
       WHERE id = ${data?.id}
     `;
     
+    client.end();
     return NextResponse.json({ status: "success",  data: []});
   }catch(error) {
     return NextResponse.json({ status: "error", error: error });

@@ -164,7 +164,7 @@ export default function ModalEditTournament({ setOpen, tournament, setReload }) 
                   type="number" 
                   label="# Máximo de usuarios" 
                   fullWidth
-                  InputProps={{ inputProps: { min: 16, max: 120 } }}
+                  InputProps={{ inputProps: { min: 2, max: 120 } }}
                   onChange={(e) => field.onChange(e.target.value)}
                 />
               )}

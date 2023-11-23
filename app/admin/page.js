@@ -3,8 +3,6 @@
 import { useSession } from "next-auth/react";
 export default function AdminPage() {
   const { data: { user } } = useSession();
-  console.log({user});
-
   
   return (
     <div className="p-1">

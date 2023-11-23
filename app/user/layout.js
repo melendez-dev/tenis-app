@@ -12,7 +12,6 @@ export default function AdminLayaout({ children }) {
 
   return (
     <div>
-      <div>section user</div>
       {children}
     </div>
   )
